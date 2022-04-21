@@ -28,6 +28,4 @@ const longestCommonPrefix = function (strs1) {
   return firstTwo;
 };
 
-console.log(longestCommonPrefix(strs1));
-
 module.exports = longestCommonPrefix;

@@ -26,6 +26,19 @@ Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.} 
  */
 
-const palindromeNumber = function (x) {};
+let num1 = 10,
+  num2 = 121,
+  num3 = 123,
+  num4 = 12121;
+const palindromeNumber = function (x) {
+  let charArray = x.toString().split("");
+  for (let i = 0; i < charArray.length; i++) {
+    if (charArray[i] === charArray[charArray.length - 1 - i]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
 
 module.exports = palindromeNumber;
