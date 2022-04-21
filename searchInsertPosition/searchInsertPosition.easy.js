@@ -40,15 +40,12 @@ const searchInsert = function (nums, target) {
       return middle;
     } else if (nums[middle] > target) {
       end = middle;
-      middle = Math.floor((end - start) / 2);
     } else {
       start = middle;
-      middle = Math.floor((end - start) / 2) + start;
     }
+    middle = Math.floor((end + start) / 2);
   }
   return target > start ? end : start;
 };
-
-console.log(searchInsert([1, 3, 5, 6], 7));
 
 module.exports = searchInsert;

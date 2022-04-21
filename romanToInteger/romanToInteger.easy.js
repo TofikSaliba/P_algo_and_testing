@@ -45,7 +45,7 @@ const romanToInt = function (s) {
   let sum = 0;
   //!-----------------------------Comment from here
 
-  obj = {
+  const obj = {
     I: 1,
     IV: 4,
     V: 5,
@@ -120,5 +120,7 @@ const romanToInt = function (s) {
   // }
   return sum;
 };
+
+console.log(romanToInt("I"));
 
 module.exports = romanToInt;

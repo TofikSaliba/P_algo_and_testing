@@ -26,4 +26,13 @@ Input: nums = [3,3], target = 6
 Output: [0,1]}
  */
 
-const twoSum = function (nums, target) {};
+const twoSum = function (nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] + nums[i + 1] === target) {
+      return [i, i + 1];
+    }
+  }
+  return [];
+};
+
+module.exports = twoSum;
