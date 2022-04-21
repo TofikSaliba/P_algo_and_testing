@@ -23,4 +23,28 @@ Example 3:
 Input: s = "(]"
 Output: false
  */
-const isValid = function (s) {};
+const isValid = function (s) {
+  const closing = [")", "]", "}"],
+    openning = ["(", "[", "{"],
+    stack = [];
+  for (let i = 0; i < s.length; i++) {
+    if (openning.indexOf(s[i]) > -1) {
+      stack.push(s[i]);
+    } else {
+      if (stack.length) {
+        let temp = stack.pop();
+        if (openning.indexOf(temp) !== closing.indexOf(s[i])) {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    }
+  }
+  if (stack.length) {
+    return false;
+  }
+  return true;
+};
+
+module.exports = isValid;
