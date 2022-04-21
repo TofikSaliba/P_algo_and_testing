@@ -39,5 +39,86 @@ Input: s = "MCMXCIV"
 Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
+//* I I I
 
-const romanToInt = function (s) {};
+const romanToInt = function (s) {
+  let sum = 0;
+  //!-----------------------------Comment from here
+
+  obj = {
+    I: 1,
+    IV: 4,
+    V: 5,
+    IX: 9,
+    X: 10,
+    XL: 40,
+    L: 50,
+    XC: 90,
+    C: 100,
+    CD: 400,
+    D: 500,
+    CM: 900,
+    M: 1000,
+  };
+  for (let i = 0; i < s.length; i++) {
+    if (obj[s[i] + s[i + 1]]) {
+      sum += obj[s[i] + s[i + 1]];
+      i++;
+    } else {
+      sum += obj[s[i]];
+    }
+  }
+  //!----------------------To here, and uncomment the next code for a second solution using switch
+  // for (let i = 0; i < s.length; i++) {
+  //   switch (s[i]) {
+  //     case "I":
+  //       if (s[i + 1] === "V") {
+  //         sum += 4;
+  //         i++;
+  //       } else if (s[i + 1] === "X") {
+  //         sum += 9;
+  //         i++;
+  //       } else {
+  //         sum += 1;
+  //       }
+  //       break;
+  //     case "V":
+  //       sum += 5;
+  //       break;
+  //     case "X":
+  //       if (s[i + 1] === "L") {
+  //         sum += 40;
+  //         i++;
+  //       } else if (s[i + 1] === "C") {
+  //         sum += 90;
+  //         i++;
+  //       } else {
+  //         sum += 10;
+  //       }
+  //       break;
+  //     case "L":
+  //       sum += 50;
+  //       break;
+  //     case "C":
+  //       if (s[i + 1] === "D") {
+  //         sum += 400;
+  //         i++;
+  //       } else if (s[i + 1] === "M") {
+  //         sum += 900;
+  //         i++;
+  //       } else {
+  //         sum += 100;
+  //       }
+  //       break;
+  //     case "D":
+  //       sum += 500;
+  //       break;
+  //     case "M":
+  //       sum += 1000;
+  //       break;
+  //   }
+  // }
+  return sum;
+};
+
+module.exports = romanToInt;
