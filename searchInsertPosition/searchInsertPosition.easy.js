@@ -30,4 +30,25 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
  */
-const searchInsert = function (nums, target) {};
+const searchInsert = function (nums, target) {
+  let start = 0,
+    end = nums.length;
+  let middle = Math.floor((end - start) / 2);
+
+  while (start < end - 1) {
+    if (nums[middle] === target) {
+      return middle;
+    } else if (nums[middle] > target) {
+      end = middle;
+      middle = Math.floor((end - start) / 2);
+    } else {
+      start = middle;
+      middle = Math.floor((end - start) / 2) + start;
+    }
+  }
+  return target > start ? end : start;
+};
+
+console.log(searchInsert([1, 3, 5, 6], 7));
+
+module.exports = searchInsert;
